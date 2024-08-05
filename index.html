@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Framework</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+    $("#input").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#tbody tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+    });
+</script>
+</head>
+<style>
+    table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+    td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+
+    tr:nth-child(even) {
+    background-color: #dddddd;
+    }
+    #input {
+      width: 25%;
+      padding: 12px 20px;
+      margin: 12px 0;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+    }
+</style>
+<body>
+    <center><h2>Report Framework</h2></center>
+    <input id="input" type="text" placeholder="Search..">
+    <select id="column">
+        <option value="0" selected disabled>Select Column</option>
+        <option value="1">ID</option>
+        <option value="2">Age</option>
+        <option value="3">Salary</option>
+        <option value="4">Projects Completed</option>
+      </select>
+    <select id="conditionSelect">
+        <option value="0" selected disabled>Select Condition</option>
+        <option value="1">Equals</option>
+        <option value="2">Less than</option>
+        <option value="3">Less than or equal</option>
+        <option value="4">Greater than</option>
+        <option value="5">Greater than or equal</option>
+        <option value="6">Range</option>
+        <option value="7">Not equal</option>
+      </select>
+    <table id ="table">
+        <thead>
+            <tr>
+              <th onclick="sortTable_number(0)">ID </th>
+              <th onclick="sortTable(1)">Name</th>
+              <th onclick="sortTable_number(2)">Age</th>
+              <th onclick="sortTable(3)">Role</th>
+              <th onclick="sortTable(4)">Hire Date</th>
+              <th onclick="sortTable(5)">Active</th>
+              <th onclick="sortTable_number(6)">Salary</th>
+              <th onclick="sortTable(7)">Department</th>
+              <th onclick="sortTable_number(8)">Projects Completed</th>
+              <th onclick="sortTable(9)">Last Login</th>
+              <th onclick="sortTable(10)">Access Level</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+
+          </tbody>
+        
+    </table>
+    
+</body>
+<script src="script.js"></script>
+</html>
